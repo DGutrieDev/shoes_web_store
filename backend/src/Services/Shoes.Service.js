@@ -3,10 +3,9 @@ const ShoesModel = require("../Models/Shoes.Model");
 class ServiceShoes {
   async createShoes(data) {
     try {
-      // Si data es un array, usar bulkCreate; si es un objeto, usar create
       const shoes = Array.isArray(data)
-        ? await ShoesModel.bulkCreate(data) // Guarda múltiples registros
-        : await ShoesModel.create(data); // Guarda un solo registro
+        ? await ShoesModel.bulkCreate(data)
+        : await ShoesModel.create(data);
 
       return shoes;
     } catch (error) {
@@ -71,19 +70,6 @@ class ServiceShoes {
     }
   }
 
-  async getShoesByModel(model) {
-    try {
-      const shoes = await ShoesModel.findAll({
-        where: {
-          model: model,
-        },
-      });
-      return shoes;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
   async getShoesBySize(size) {
     try {
       const shoes = await ShoesModel.findAll({
@@ -135,6 +121,20 @@ class ServiceShoes {
       throw new Error(error);
     }
   }
+
+  async getShoesByGender(gender){
+    try{
+      const shoes = await ShoesModel.findAll({
+        where: {
+          gender: gender,
+        }
+      });
+      return shoes;
+    }catch(error){
+      throw new Error(error);
+    }
+  }
+  
 }
 
 module.exports = ServiceShoes;

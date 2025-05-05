@@ -92,12 +92,12 @@ class ShoesController {
         }
     }
 
-    async getShoesByModel(req, res) {
-        try {
-            const shoes = await shoesService.getShoesByModel(req.params.model);
+    async getShoesByGender(req, res){
+        try{
+            const shoes = await shoesService.getShoesByGender(req.params.gender);
             res.status(200).json(shoes);
-        } catch (error) {
-            res.status(400).json({ message: error.message });
+        }catch(error){
+            res.status(400).json({message: error.message});
         }
     }
 

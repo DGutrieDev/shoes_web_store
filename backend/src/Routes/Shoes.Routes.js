@@ -12,5 +12,6 @@ router
   .get("/brand/:brand", shoesController.getShoesByBrand)
   .get("/category/:category", shoesController.getShoesByCategory)
   .get("/size/:size", shoesController.getShoesBySize)
+  .get("/gender/:gender", shoesController.getShoesByGender);
   
 module.exports = router;

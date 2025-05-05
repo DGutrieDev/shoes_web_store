@@ -21,16 +21,16 @@ const ShoesModel = db.define("Shoes",{
         allowNull: false,
     },
     size: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46"),
         allowNull: false,
     },
     brand: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    model: {
-        type: DataTypes.STRING,
-        allowNull: true,
+    gender: {
+        type: DataTypes.ENUM("Male", "Female", "Unisex"),
+        allowNull: false,
     },
     category_id: {
         type: DataTypes.INTEGER,
